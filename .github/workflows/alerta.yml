@@ -7,23 +7,24 @@ on:
 
 jobs:
   notify:
-    name: Enviar notificación ntfy
+    name: 🚨 Notificación a ntfy.sh
     runs-on: ubuntu-latest
 
     steps:
-      - name: Clonar el código
+      - name: ✅ Clonar el código
         uses: actions/checkout@v3
 
-      - name: Ejecutar hola mundo
+      - name: 🧪 Ejecutar Hola Mundo
         run: |
+          echo "✅ Hola Mundo ejecutado desde index.js"
           node index.js
 
-      - name: Notificar via ntfy.sh
+      - name: 🚀 Enviar notificación a ntfy.sh
         env:
           NTFY_TOPIC: devops-itla
         run: |
+          echo "📢 Enviando notificación a ntfy..."
           curl -s \
             -X POST \
-            -d "Se ha hecho push a main en $GITHUB_REPOSITORY ($GITHUB_SHA) por $GITHUB_ACTOR" \
+            -d "✅ Se ha hecho push a main en el repo $GITHUB_REPOSITORY 🚀" \
             https://ntfy.sh/$NTFY_TOPIC
-            
